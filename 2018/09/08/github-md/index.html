@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="随心">
+    <meta name="keyword"  content="傻子的世界">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          github搭建博客教程 - Bleach | Myth
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2018/09/08/github-md/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('contact-bg.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#配置" title="配置">配置</a>
+                            
+                        </div>
+                        <h1>github搭建博客教程</h1>
+                        <h2 class="subheading">Hexo</h2>
+                        <span class="meta">
+                            Posted by Bleach on
+                            2018-09-08
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Bleach&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/bbs/">BBS</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>本文基本摘自：<a href="https://godweiyang.com/2018/04/13/hexo-blog/" target="_blank" rel="noopener">https://godweiyang.com/2018/04/13/hexo-blog/</a></p>
+<p>首先要了解一下我们搭建博客要用到的框架。Hexo是高效的静态站点生成框架，它基于Node.js。通过Hexo，你可以直接使用Markdown语法来撰写博客。现在稍微总结一下搭建步骤。</p>
+<h2><span id="安装nodejs">安装Node.js</span></h2>
+<p>下载最新版然后安装一路默认，直接点击<code>Next</code>。</p>
+<p>安装好后按<code>win+R</code>打开命令提示符，输入<code>node -v</code>和<code>npm -v</code>，出现版本号即为安装成功</p>
+<h2><span id="安装git">安装Git</span></h2>
+<p>为了把本地网页上传到github上，我们需要用到分布式版控制工具————Git（我也不知道是什么，我的理解是一种另类的控制台）<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">下载地址</a></p>
+<p>安装同样全部默认，但是最后一步添加路径选择<code>Use Git from the Windows Command Prompt</code>，这样就可以直接在命令提示符里打开git了。<em>当然这步不重要</em></p>
+<p>安装完成后命令提示符里输入<code>git --version</code>验证是否安装成功</p>
+<h2><span id="注册github账号并创建项目">注册Github账号并创建项目</span></h2>
+<p>当然要创建一个github账号用来存我们的网站了</p>
+<p>登陆账户，新建一个项目，如下图：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-17a748e7d4ba7e0703f04a2fee18373b_hd.jpg" alt="打开"></p>
+<p>然后如图，输入自己的项目名字，名字格式一定要为：你github的<strong>用户名</strong>+<code>.github.io</code>,README初始化也要勾上。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-87519277092bc0f2215a265582e2c6f2_hd.jpg" alt=""></p>
+<p>项目建成后，点击<code>settings</code>，向下拉到最后有一个<code>Github Pages</code>，点击<code>Choose a theme</code>选择一个主题。然后等一会儿，再回到<code>Github Pages</code>，就变成如下这样：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-1066a8c7ad1cb2fb22bc291f3af4eefd_hd.jpg" alt=""></p>
+<p>点击那个网址，就会出现自己的网页，效果如下：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-6625e860227930b804fd3690d34abcc8_hd.jpg" alt=""></p>
+<h2><span id="安装hexo">安装Hexo</span></h2>
+<p>在自己的电脑中找个合适的地方新建一个文件夹用来存放自己的博客文件，比如我的博客文件存放在</p>
+<p><code>D:\Bleach\blog</code>目录下</p>
+<p>在该目录下点击<code>Git Bash Here</code>，（当然也可以直接运行然后切换到该目录），以后所有操作都在git控制台进行</p>
+<p>定位到上方目录后输入<code>npm install hexo-cli -g</code>安装Hexo。会有几个报错，无视它就好</p>
+<p>然后输入<code>npm install hexo --save</code>继续安装</p>
+<p>安装完成输入<code>hexo -v</code>验证是否成功</p>
+<p>然后初始化网站，输入<code>hexo init</code>初始化文件夹，接着输入<code>npm install</code>安装必备组件</p>
+<p>这样本地配置就好了，输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>打开本地服务器，用浏览器浏览<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，就可以看见我们的博客了，效果如下：</p>
+<p><img src="https://godweiyang.com/2018/04/13/hexo-blog/5.jpg" alt=""></p>
+<p>按<code>ctrl+c</code>关闭本地服务器</p>
+<h2><span id="连接github与本地">连接Github与本地</span></h2>
+<p>首先打开git bash，然后分别输入命令：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"Bleachz"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"792326664@qq.com"</span></span><br></pre></td></tr></table></figure>
+<p>用户名和邮箱根据你注册的github的信息来</p>
+<p>然后生成密钥SSH key：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "792326664@<span class="keyword">qq</span>.<span class="keyword">com</span>"</span><br></pre></td></tr></table></figure>
+<p>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
+<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
+<p>打开<a href="https://github.com/" target="_blank" rel="noopener">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名字随便。</p>
+<p>打开<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>（具体位置请看你生产密钥时下方的显示地址），注意是隐藏文件夹，将其中的内容复制到新建的SSH中</p>
+<p>输入<code>ssh -T git@github.com</code>，如果如下图所示，出现你的用户名，那就成功了</p>
+<p><img src="https://godweiyang.com/2018/04/13/hexo-blog/6.jpg" alt=""></p>
+<p>打开博客目录下的<code>_config.yml</code>文件，这是博客的配置文件，这里修改博客的各种信息</p>
+<p>修改最后一行配置：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/godweiyang/godweiyang.github.io</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<p>repository修改为你自己的github项目地址。 <strong>冒号之后一定要跟一个空格</strong></p>
+<h2><span id="写文章发布文章">写文章，发布文章</span></h2>
+<p>首先在博客目录下右键打开git，安装扩展<code>npm install hexo-deployer-git --save</code></p>
+<p>然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章</p>
+<p>然后打开<code>D:\Bleach\blog\source\_post</code>的目录，可以发现下面多了一个文件夹和一个md后缀的文件（虽然我只看见了md文件），一个存放你要调用图片等数据，一个就是你的文章</p>
+<p>编写完markdown文件后，根目录下输入<code>hexo g</code>生成静态网页，然后可以同上方一样浏览本地，也可以跳过，直接输入<code>hexo d</code>上传到github上，这时点开你的github.io主页就能看见了。</p>
+<p><strong>有时候hexo d没有更新可以删除.deploy_git文件夹，然后hexo clean，hexo g -d ，就可以了</strong></p>
+<h2><span id="绑定域名">绑定域名</span></h2>
+<p>现在默认的域名还是<code>xxx.github.io</code>，是不是很没有牌面？想不想也像我一样弄一个专属域名呢，首先你得购买一个域名，xx云都能买，看你个人喜好了。</p>
+<p>以我的百度云为例，如下图所示，添加两条解析记录：<br>
+<img src="https://godweiyang.com/2018/04/13/hexo-blog/7.jpg" alt="img"></p>
+<p>然后打开你的github博客项目，点击<code>settings</code>，拉到下面<code>Custom domain</code>处，填上你自己的域名，保存：<br>
+<img src="https://godweiyang.com/2018/04/13/hexo-blog/8.jpg" alt="img"></p>
+<p>这时候你的项目根目录应该会出现一个名为<code>CNAME</code>的文件了。如果没有的话，打开你本地博客<code>/source</code>目录，我的是<code>D:\study\program\blog\source</code>，新建<code>CNAME</code>文件，注意没有后缀。然后在里面写上你的域名，保存。最后运行<code>hexo g</code>、<code>hexo d</code>上传到github。</p>
+<p>悲催的我发现域名要报备，太麻烦了，所以没弄</p>
+<h2><span id="更换主题">更换主题</span></h2>
+<p>网上大多数主题都是github排名第一的<code>Next</code>主题，但是我个人不是很喜欢，我更喜欢<code>beantech</code>主题，地址在<a href="https://link.zhihu.com/?target=https%3A//github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">传送门</a>。</p>
+<p>首先要注意的是，<strong>这个github项目不仅包含了主题文件，还包含了hexo的各种文件</strong>。</p>
+<p>所以首先下载下来这个项目，然后推荐将下图所有文件（即里面所有的文件）全部替换你原本博客根目录下的文件：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-1af373804bc05ca6ed95e14819d6544d_hd.jpg" alt="img"></p>
+<p>然后运行<code>hexo clean</code>清空所有生成的网页缓存，<code>hexo g</code>、<code>hexo d</code>。这时候新的主题网页就生成好了，博客根目录的情况应该大致如下：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-8c3023199e082e806388674eb9a95c0b_hd.jpg" alt="img"></p>
+<p>如何<code>hexo clean</code>的时候报错请删掉node_modules文件然后运行<code>npm install</code>然后运行clean如果还报错请运行<code>npm install -save xxx</code>更新，然后最下方会提示你运行<code>npm audit fix</code>完成更新</p>
+<p>然后就<code>hexo clean</code>清空缓存，当然有时候需要删除.deploy_git文件夹进行手动清空，然后才能继续执行发布文章的操作</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+<h2><span id="博客目录构成介绍">博客目录构成介绍</span></h2>
+<p>从上图可以看出，博客的目录结构如下：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> node_modules</span></span><br><span class="line"><span class="ruby">- public</span></span><br><span class="line"><span class="ruby">- scaffolds</span></span><br><span class="line"><span class="ruby">- source</span></span><br><span class="line"><span class="ruby">    - _posts</span></span><br><span class="line"><span class="ruby">    - about</span></span><br><span class="line"><span class="ruby">    - archive</span></span><br><span class="line"><span class="ruby">    - img</span></span><br><span class="line"><span class="ruby">    - tags</span></span><br><span class="line"><span class="ruby">- themes</span></span><br></pre></td></tr></table></figure>
+<p><code>node_modules</code>是node.js各种库的目录，<code>public</code>是生成的网页文件目录，<code>scaffolds</code>里面就三个文件，存储着新文章和新页面的初始设置，<code>source</code>是我们最常用到的一个目录，里面存放着文章、各类页面、图像等文件，<code>themes</code>存放着主题文件，一般也用不到。</p>
+<p>我们平时写文章只需要关注<code>source/_posts</code>这个文件夹就行了。</p>
+<h2><span id="个性化设置及bug处理">个性化设置及bug处理</span></h2>
+<p><strong>首先打开_config.yml，根据自己需求配置，具体不说了，有注释。</strong></p>
+<h2><span id="修复文档分类bug">修复文档分类bug</span></h2>
+<p>这个主题文档分类功能有个bug，一直没有得到解决，直到最近，我才发现是源文件的单词拼错了。。。</p>
+<p>打开<code>D:\Bleach\blog\scaffolds\post.md</code>，单词<code>catagories</code>改为<code>categories</code></p>
+<h2><span id="注意事项">注意事项</span></h2>
+<p>首先解释一下文章开头的配置，如下图所示：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-b4ae9ea7533bf3d7a4c20d25bdc5169e_hd.jpg" alt="img"></p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: 文章标题</span><br><span class="line">catalog: 是否显示段落目录</span><br><span class="line">date: 文章日期</span><br><span class="line">subtitle: 子标题</span><br><span class="line">header-img: 顶部背景图片</span><br><span class="line">top: 是否置顶</span><br><span class="line"><span class="keyword">tags:</span> 标签</span><br><span class="line">categories: 分类</span><br></pre></td></tr></table></figure>
+<p>网站图片都保存在<code>D:\Bleach\blog\source\img</code>目录下，可以修改成自己的图片。</p>
+<p>如果换一台电脑想迁移博客的话，最简单的方法就是把博客整个目录拷贝过去，就是这么暴力。</p>
+<p>删除文章只需先<code>hexo clean</code>然后将souce中的md文件删除然后<code>hexo g</code>再<code>hexo d</code>即可</p>
+<p><strong>其他还有什么问题的话等我想起来了再继续添加，如果遇到问题欢迎联系我。</strong></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/09/07/server/" data-toggle="tooltip" data-placement="top" title="实现多服务器多进程">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装Node.js</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">注册Github账号并创建项目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">连接Github与本地</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">写文章，发布文章</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">绑定域名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">更换主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">博客目录构成介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">个性化设置及bug处理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">修复文档分类bug</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">注意事项</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#配置" title="配置">配置</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#" target="_blank">It Helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://yoursite-url/2018/09/08/github-md/";
+    var disqus_url = "http://yoursite-url/2018/09/08/github-md/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Bleachz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Bleach 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

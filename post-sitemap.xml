@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/09/08/github-md/</loc>
+        <lastmod>2018-09-08T09:29:27.529Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2017/03/18/hexo-theme-beantech/</loc>
         <lastmod>2018-09-08T06:02:44.473Z</lastmod>
         <changefreq>weekly</changefreq>
