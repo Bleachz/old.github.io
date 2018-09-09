@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          实现多服务器多进程 - Bleach | Myth
+          github动态背景 - Bleach | Myth
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2018/09/07/server/">
+    <link rel="canonical" href="http://yoursite-url/2018/09/09/github-next/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('Demo.png')
+            background-image: url('contact-bg.jpg')
             /*post*/
         
     }
@@ -93,11 +93,11 @@
                               <a class="tag" href="/tags/#配置" title="配置">配置</a>
                             
                         </div>
-                        <h1>实现多服务器多进程</h1>
+                        <h1>github动态背景</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Bleach on
-                            2018-09-07
+                            2018-09-09
                         </span>
                     </div>
                 
@@ -221,44 +221,48 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="服务器实现多端口进程">服务器实现多端口进程</span></h1>
-<p>最开始是想要能够减少繁琐的文件后缀，想着通过每个端口进行不同的进程</p>
-<p>翻阅无数资料感觉自己越查越偏在最后感觉到绝望快放弃的时候终于成功了！！！</p>
-<p>以下为具体步骤：</p>
-<h2><span id="关闭防火墙或添加开放端口">关闭防火墙或添加开放端口</span></h2>
-<p>由于还不会关所以就暂时只写写添加允许通过端口吧！！！尴尬</p>
-<ol>
-<li>打开sysconfig文件夹</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig</span><br></pre></td></tr></table></figure>
-<ol>
-<li>修改iptables里的内容，向里面写入</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 你要开放的端口 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<ol>
-<li>重启服务(虽然我并没有用到)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
-<ol>
-<li>重启防火墙(上面一个都没有用到这个当然也没有用到啊23333)</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/network restart</span><br></pre></td></tr></table></figure>
-<h2><span id="添加白名单">添加白名单</span></h2>
-<ol>
-<li>先找到我们的服务器控制台界面，点击更多进入安全组配置</li>
-<li>点击配置规则</li>
-<li>这里我们可以对规则进行配置，点击安全组规则，或快速创建规则</li>
-<li>添加你要开放的端口（具体规则阿里云有说明）</li>
-</ol>
-<p>最后你就可以访问了！！！</p>
-<h2><span id="ps如何开启和关闭后台php进程">PS：如何开启和关闭后台php进程</span></h2>
-<p>开启后台进程只需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -S 0.0.0.0:80 &amp;</span><br></pre></td></tr></table></figure>
-<p>但是当你关闭界面后你就无法操作此项进程了，关闭如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep php</span><br></pre></td></tr></table></figure>
-<p>查看所有进程，然后找到第二列那个数即为pig，进程号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 进程号</span><br></pre></td></tr></table></figure>
-<p>其余操作请参考：<a href="http://os.51cto.com/art/201101/244090.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201101/244090.htm</a></p>
+                <p>上一篇弄好博客后，想着加一个以前一直觉得很好玩的动态背景，开始一直以为只有next的主题才能加这个，因为网上只有关于这个教程，后来抱着大不了博客崩溃重新弄一个的想法试了试，结果真的成功了。具体步骤如下：</p>
+<h2><span id="下载">下载</span></h2>
+<p>两个命令选一个执行，我的只能执行npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># use npm</span><br><span class="line">npm install --save canvas-nest.js</span><br><span class="line"></span><br><span class="line"># or use yarn</span><br><span class="line">yarn add canvas-nest.js</span><br></pre></td></tr></table></figure>
+<h2><span id="修改文件">修改文件</span></h2>
+<p>打开<code>博客根目录/themes/next/layout/_layout.swig</code></p>
+<p>如果你的主题不为next怎么办：</p>
+<p><strong>PS重点：因为我的主题不是next，所以此处next可以替换为你的博客主题文件夹如我的为beantech，此外layout文件夹里的文件名也不一样，我的为layout.ejs</strong></p>
+<p>所以我的目录为<code>博客根目录/themes/beantech/layout/layout.ejs</code>此处你可以根据自己的情况自我变通</p>
+<p>打开之后在 <code>&lt; /body&gt;</code>之前添加代码(注意不要紧靠在&lt; /head&gt;的后面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.canvas_nest %&#125;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="修改配置文件">修改配置文件</span></h2>
+<p>打开<code>博客根目录/themes/beantech/_config.yml</code>此处用的我自己的目录，在里面添加代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># --------------------------------------------------------------</span><br><span class="line"># background settings</span><br><span class="line"># --------------------------------------------------------------</span><br><span class="line"># add canvas-nest effect</span><br><span class="line"># see detail from https://github.com/hustcc/canvas-nest.js</span><br><span class="line">canvas_nest: true</span><br></pre></td></tr></table></figure>
+<p>到此就结束了，运行 <code>hexo clean</code>，然后运行 <code>hexo g</code>,然后运行 <code>hexo s</code>，最后打开浏览器在浏览器的地址栏输入 <code>localhost:4000</code> 就能看到效果了\（￣︶￣）/</p>
+<h3><span id="如果你感觉默认的线条太多的话">如果你感觉默认的线条太多的话</span></h3>
+<h4><span id="可以这么设置gt">可以这么设置====&gt;</span></h4>
+<p>在上一步修改 <code>layout.ejs</code>中，把刚才的代码改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.canvas_nest %&#125;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span></span><br><span class="line">color=<span class="string">"0,0,255"</span> opacity=<span class="string">'0.7'</span> zIndex=<span class="string">"-2"</span> count=<span class="string">"99"</span> src=<span class="string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="配置项说明">配置项说明</span></h3>
+<ul>
+<li><code>color</code> ：线条颜色, 默认: <code>'0,0,0'</code>；三个数字分别为(R,G,B)</li>
+<li><code>opacity</code>: 线条透明度（0~1）, 默认: <code>0.5</code></li>
+<li><code>count</code>: 线条的总数量, 默认: <code>150</code></li>
+<li><code>zIndex:</code> 背景的z-index属性，css属性用于控制所在层的位置, 默认: <code>-1</code></li>
+</ul>
+<p>颜色详解：</p>
+<blockquote>
+<p><em>格式：rgb(255,0,0);</em><br>
+<em>参数1控制红色显示的亮度</em><br>
+<em>参数2控制绿色显示的亮度</em><br>
+<em>参数3控制蓝色色显示的亮度</em></p>
+<p><em>数字的范围0-255，0代表不发光，255代表发光，值越大越亮</em></p>
+<p><em>红色：rgb(255,0,0)</em><br>
+<em>绿色：rgb(0,255,0)</em><br>
+<em>蓝色：rgb(0,0,255)</em><br>
+<em>黑色：rgb(0,0,0) # 所有都不亮</em><br>
+<em>白色：rgb(255,255,255) # 所有都最亮</em><br>
+灰色：只要让红色/绿色/蓝色的值都一样就是灰色，而且三个值越小，越偏<br>
+<em>黑色，越大越偏白色</em></p>
+</blockquote>
+<p>如果还想添加其他更多的东西如自定义鼠标样式，统计功能等等请请点击<a href="https://blog.csdn.net/com_ma/article/details/76039859" target="_blank" rel="noopener">更多</a></p>
 
                 
 
@@ -266,13 +270,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/09/08/github-md/" data-toggle="tooltip" data-placement="top" title="github搭建博客教程">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/09/04/test/" data-toggle="tooltip" data-placement="top" title="article title">Next Post &rarr;</a>
+                            <a href="/2018/09/08/github-md/" data-toggle="tooltip" data-placement="top" title="github搭建博客教程">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -302,7 +302,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">服务器实现多端口进程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">关闭防火墙或添加开放端口</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">添加白名单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">PS：如何开启和关闭后台php进程</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">修改配置文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">如果你感觉默认的线条太多的话</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.1.1.</span> <span class="toc-nav-text">可以这么设置====&gt;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">配置项说明</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -351,8 +351,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://yoursite-url/2018/09/07/server/";
-    var disqus_url = "http://yoursite-url/2018/09/07/server/";
+    var disqus_identifier = "http://yoursite-url/2018/09/09/github-next/";
+    var disqus_url = "http://yoursite-url/2018/09/09/github-next/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
