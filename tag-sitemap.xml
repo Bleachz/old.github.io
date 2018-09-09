@@ -9,22 +9,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/Hexo/</loc>
-        <lastmod>2018-09-08T06:02:44.473Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2018-09-08T06:02:44.473Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite-url/tags/%E9%85%8D%E7%BD%AE/</loc>
-        <lastmod>2018-09-08T09:29:27.529Z</lastmod>
+        <lastmod>2018-09-08T09:48:47.788Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/Hexo/</loc>
+        <lastmod>2018-09-08T09:55:49.353Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
