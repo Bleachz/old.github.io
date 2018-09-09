@@ -144,6 +144,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -159,13 +166,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -230,19 +230,19 @@
 <ol>
 <li>打开sysconfig文件夹</li>
 </ol>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/etc/sysconfig</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig</span><br></pre></td></tr></table></figure>
 <ol>
 <li>修改iptables里的内容，向里面写入</li>
 </ol>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m <span class="keyword">state</span> --state NEW -m tcp --dport 你要开放的端口 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 你要开放的端口 -j ACCEPT</span><br></pre></td></tr></table></figure>
 <ol>
 <li>重启服务(虽然我并没有用到)</li>
 </ol>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service iptables restart</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
 <ol>
 <li>重启防火墙(上面一个都没有用到这个当然也没有用到啊23333)</li>
 </ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d<span class="built_in">/network </span>restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/network restart</span><br></pre></td></tr></table></figure>
 <h2><span id="添加白名单">添加白名单</span></h2>
 <ol>
 <li>先找到我们的服务器控制台界面，点击更多进入安全组配置</li>
@@ -253,11 +253,11 @@
 <p>最后你就可以访问了！！！</p>
 <h2><span id="ps如何开启和关闭后台php进程">PS：如何开启和关闭后台php进程</span></h2>
 <p>开启后台进程只需要</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">php</span> <span class="selector-tag">-S</span> 0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-pseudo">:80</span> &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -S 0.0.0.0:80 &amp;</span><br></pre></td></tr></table></figure>
 <p>但是当你关闭界面后你就无法操作此项进程了，关闭如下：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> aux | <span class="keyword">grep</span> php</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep php</span><br></pre></td></tr></table></figure>
 <p>查看所有进程，然后找到第二列那个数即为pig，进程号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 进程号</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 进程号</span><br></pre></td></tr></table></figure>
 <p>其余操作请参考：<a href="http://os.51cto.com/art/201101/244090.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201101/244090.htm</a></p>
 
                 
@@ -547,6 +547,10 @@
 <!-- Image to hack wechat -->
 <img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+{% if theme.canvas_nest %}
+<script type="text/javascript"
+color="55,55,55" opacity='0.7' zIndex="-2" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+{% endif %}
 </body>
 
 </html>
