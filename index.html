@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/bbs/">BBS</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/bbs/">BBS</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -275,14 +275,13 @@
 
     <a href="/2018/09/07/server/">
         <h2 class="post-title">
-            实现多服务器多进程
+            服务器实现多端口进程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            服务器实现多端口进程
-最开始是想要能够减少繁琐的文件后缀，想着通过每个端口进行不同的进程
+            最开始是想要能够减少繁琐的文件后缀，想着通过每个端口进行不同的进程
 翻阅无数资料感觉自己越查越偏在最后感觉到绝望快放弃的时候终于成功了！！！
 以下为具体步骤：
 关闭防火墙或添加开放端口
@@ -294,7 +293,7 @@
 
 修改iptables里的内容，向里面写入
 
-1-A I......
+1-A INPUT -p tcp......
         </div>
     </a>
     
@@ -311,20 +310,19 @@
 
     <a href="/2018/09/04/test/">
         <h2 class="post-title">
-            article title
+            Reverse
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            [TOC]
-r1
+            r1
 直接丢进ida中反编译即可看见password
 如图password为:my_password_to_easy
 r2
 反编译后发现他将一串字符：I]{I\x14V\x17{WAGQV\x17{TS@，每个字符经过与0x24异或得到字符串s1
 再将s1与输入的密码进行比较相同则通过，则密码为已知字符串与0x24异或得到的字符串
-12345s1='I]&#123;I\x14V\......
+12345s1='I]&#123;I\x14V\x17&#1......
         </div>
     </a>
     
@@ -401,9 +399,9 @@ I publish the whole project f......
     <div class="tags">
         
             
-            <a href="/tags/#配置" title="配置" rel="3">配置</a>
-            
         
+            
+            <a href="/tags/#配置" title="配置" rel="3">配置</a>
             
         
             
@@ -468,11 +466,11 @@ I publish the whole project f......
         </li>
       
         <li>
-          <a href="/2018/09/07/server/">实现多服务器多进程</a>
+          <a href="/2018/09/07/server/">服务器实现多端口进程</a>
         </li>
       
         <li>
-          <a href="/2018/09/04/test/">article title</a>
+          <a href="/2018/09/04/test/">Reverse</a>
         </li>
       
         <li>

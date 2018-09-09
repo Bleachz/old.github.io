@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/bbs/">BBS</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/bbs/">BBS</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -207,16 +207,42 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#配置" title="配置" rel="3">配置</a>
-                
                     <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
                 
-                    <a href="#laji" title="laji" rel="1">laji</a>
+                    <a href="#配置" title="配置" rel="3">配置</a>
+                
+                    <a href="#wp" title="wp" rel="1">wp</a>
                 
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Hexo">
+                    <span class="tag-text">Hexo</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/03/18/hexo-theme-beantech/">
+                        <h2 class="post-title">
+                            [Hexo] Theme BeanTech
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                This is hexo theme Demo.
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="配置">
@@ -245,7 +271,7 @@
                  <div class="post-preview">
                      <a href="/2018/09/07/server/">
                         <h2 class="post-title">
-                            实现多服务器多进程
+                            服务器实现多端口进程
                         </h2>
                         
                     </a>
@@ -275,34 +301,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Hexo">
-                    <span class="tag-text">Hexo</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/03/18/hexo-theme-beantech/">
-                        <h2 class="post-title">
-                            [Hexo] Theme BeanTech
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                This is hexo theme Demo.
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="laji">
-                    <span class="tag-text">laji</span>
+                <span class="fa fa-tag listing-seperator" id="wp">
+                    <span class="tag-text">wp</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -312,7 +312,7 @@
                  <div class="post-preview">
                      <a href="/2018/09/04/test/">
                         <h2 class="post-title">
-                            article title
+                            Reverse
                         </h2>
                         
                     </a>

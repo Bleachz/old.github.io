@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/09/04/test/</loc>
+        <lastmod>2018-09-09T06:26:08.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/09/07/server/</loc>
+        <lastmod>2018-09-09T06:22:50.218Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/09/09/github-next/</loc>
         <lastmod>2018-09-09T04:43:58.810Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,24 +39,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/09/07/server/</loc>
-        <lastmod>2018-09-08T09:48:47.788Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://yoursite-url/2018/09/08/github-md/</loc>
         <lastmod>2018-09-08T09:47:48.344Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/09/04/test/</loc>
-        <lastmod>2018-09-05T01:46:35.863Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
