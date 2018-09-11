@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="随心">
+    <meta name="keyword"  content="傻子的世界">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          快速反弹post请求 - Bleach | Myth
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2018/09/11/post/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('11.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#web" title="web">web</a>
+                            
+                        </div>
+                        <h1>快速反弹post请求</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Bleach on
+                            2018-09-11
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Bleach&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/bbs/">BBS</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p><strong>本文因为感觉作者写的太好了太详细所以为完全转载版</strong><a href="https://ciphersaw.me/2017/12/16/%E8%AF%A6%E8%A7%A3%20CTF%20Web%20%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9%20POST%20%E8%AF%B7%E6%B1%82/" target="_blank" rel="noopener">原文链接</a>作者：<a href="https://ciphersaw.me/" target="_blank" rel="noopener">Cipher Saw</a></p>
+<h1><span id="0x00前言">0x00前言</span></h1>
+<p>在CTF Web的基础题中，经常出现一类题型：在HTTP响应头获取了一段有效期很短的关键值后，需要将经过处理后的关键值快速POST给服务器，若键值还在有效期内，则服务器返回最终的旗帜，否则继续提示“请再加快速度!!!”</p>
+<p>如果还执着于手动地获取键值，复制下来对其进行处理，最后用相应的工具把键值POST给服务器，那么对不起，因为键值的有效期一般都在1秒左右，除非有单身一百年的手速，否则不要轻易尝试。显然，这类题不是通过纯手工完成的，幸好Python提供了简单易用，功能强大的HTTP <strong>第三方开源库请求</strong>，帮助我们轻松解决关于HTTP的大部分问题。</p>
+<h1><span id="0x01-python请求">0x01 Python请求</span></h1>
+<p>关于Requests库的详细功能请见官方文档，本文只列出解题中需要用到的部分功能。</p>
+<h2><span id="安装并导入请求模块">安装并导入请求模块</span></h2>
+<p>在安装了Python的终端下输入以下命令安装请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install requests</span><br></pre></td></tr></table></figure>
+<p>安装完使用以下命令导入请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import requests</span><br></pre></td></tr></table></figure>
+<h2><span id="发送get请求与post请求">发送GET请求与POST请求</span></h2>
+<p>以Github官网为例，对其发起GET请求;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://github.com/&apos;)</span><br></pre></td></tr></table></figure>
+<p>对其发起POST请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.post(&apos;https://github.com/&apos;)</span><br></pre></td></tr></table></figure>
+<h2><span id="查看请求头">查看请求头</span></h2>
+<p>对Github官网发起请求，以查看GET请求的请求头为例，POST请求同理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://github.com/&apos;)</span><br><span class="line">&gt;&gt;&gt; r.request.headers</span><br><span class="line">&#123;&apos;Connection&apos;: &apos;keep-alive&apos;, &apos;Accept-Encoding&apos;: &apos;gzip, deflate&apos;,...</span><br></pre></td></tr></table></figure>
+<p>查看请求头的某一属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r.request.headers[&apos;Accept-Encoding&apos;]</span><br><span class="line">&apos;gzip, deflate&apos;</span><br></pre></td></tr></table></figure>
+<h2><span id="查看响应头">查看响应头</span></h2>
+<p>对Github官网发起请求，以查看GET请求的响应头为例，POST请求同理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://github.com/&apos;)</span><br><span class="line">&gt;&gt;&gt; r.headers</span><br><span class="line">&#123;&apos;Status&apos;: &apos;200 OK&apos;, &apos;Expect-CT&apos;: &apos;max-age=2592000, report-uri=...</span><br></pre></td></tr></table></figure>
+<p>查看响应头的某一属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r.headers[&apos;Status&apos;]</span><br><span class="line">&apos;200 OK&apos;</span><br></pre></td></tr></table></figure>
+<h2><span id="查看响应内容">查看响应内容</span></h2>
+<p>对Github官网发起请求，查看服务器返回页面的内容，以查看GET请求的响应内容为例，POST请求同理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://github.com/&apos;)</span><br><span class="line">&gt;&gt;&gt; r.text</span><br><span class="line">u&apos;\n\n\n\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;head&gt;\n    &lt;meta charset=&quot;utf-8&quot;&gt;\n...</span><br></pre></td></tr></table></figure>
+<h2><span id="传递get请求参数">传递GET请求参数</span></h2>
+<p>GET请求参数作为查询字符串附加在URL末尾，可以通过<code>requests.get()</code>方法中的<code>params</code>参数完成。例如，我要构建的URL为<code>https://github.com/?username=ciphersaw&amp;id=1</code>，则可以通过以下代码传递GET请求参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; args = &#123;&apos;username&apos;: &apos;ciphersaw&apos;, &apos;id&apos;: 1&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.get(&apos;https://github.com/&apos;, params = args)</span><br><span class="line">&gt;&gt;&gt; print(r.url)</span><br><span class="line">https://github.com/?username=ciphersaw&amp;id=1</span><br></pre></td></tr></table></figure>
+<p>其中<code>params</code>参数是<code>dict</code>类型变量。可以看到，带有请求参数的URL确实构造好了，不过注意，这里的<code>username</code>和<code>id</code>是为了说明问题任意构造的，传入Github官网后起作用，下同。</p>
+<h2><span id="传递post请求参数">传递POST请求参数</span></h2>
+<p>POST请求参数以表单数据的形式传递，可以通过<code>requests.post()</code>方法中的<code>data</code>参数完成，具体代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; args = &#123;&apos;username&apos;: &apos;ciphersaw&apos;, &apos;id&apos;: 1&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.post(&apos;https://github.com/&apos;, data = args)</span><br></pre></td></tr></table></figure>
+<p>其中<code>data</code>参数也是<code>dict</code>类型变量。由于POST请求参数不以明文展现，在此省略验证步骤。</p>
+<h2><span id="传递cookie参数">传递Cookie参数</span></h2>
+<p>如果想传递自定义Cookie到服务器，可以使用<code>cookies</code>参数。以POST请求为例向Github官网提交自定义Cookie（<code>cookies</code>参数同样适用于GET请求）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mycookie = &#123;&apos;userid&apos;: &apos;123456&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; r = requests.post(&apos;https://github.com/&apos;, cookies = mycookie)</span><br><span class="line">&gt;&gt;&gt; r.request.headers</span><br><span class="line">...&apos;Cookie&apos;: &apos;userid=123456&apos;,...</span><br></pre></td></tr></table></figure>
+<p>其中<code>cookies</code>参数也是<code>dict</code>类型变量。可以看到，POST请求的请求头中确实包含了自定义Cookie。</p>
+<h2><span id="会话对象session">会话对象Session（）</span></h2>
+<p>会话是存储在服务器上的相关用户信息，用于在有效期内保持客户端与服务器之间的状态。会话与Cookie配合使用，当会话或Cookie失效时，客户端与服务器之间的状态也随之失效。</p>
+<p>有关会议的原理可参见以下文章：</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/yunnysunny/article/details/26935637" target="_blank" rel="noopener">会议的根本原理及安全性</a><br>
+<a href="http://www.jianshu.com/p/2b7c10291aad" target="_blank" rel="noopener">会话原理</a></p>
+</blockquote>
+<p>请求模块中的会话对象Session（）能够在多次请求中保持某些参数，使得底层的TCP连接将被重用，提高了HTTP连接的性能。</p>
+<p>Session（）的创建过程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = requests.Session()</span><br></pre></td></tr></table></figure>
+<p>在有效期内，同一个会话对象发出的所有请求都保持着相同的Cookie，可以看出，会话对象也可以通过<code>get</code>与<code>post</code>方法发送请求，以发送GET请求为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; r = s.get(&apos;https://github.com/&apos;)</span><br></pre></td></tr></table></figure>
+<h1><span id="0x02写的">0x02写的</span></h1>
+<p>介绍完请求模块的基本使用方法，下面借助几道题来分析讲解。另外，在HTTP响应头中获取的关键值通常是经过base64编码的，所以还需要引入内建模块<a href="https://docs.python.org/3/library/base64.html" target="_blank" rel="noopener">base64</a>用于解码。以下代码均在Python 3.6环境下运行。</p>
+<h2><span id="实验吧ctf网-天下武功唯快不破">【实验吧CTF】网 - 天下武功唯快不破</span></h2>
+<p>此题是Web类型快速反弹POST请求的基础题，结合请求模块与base64模块写一个Python脚本即可实现快速反弹POST请求。相关链接如下：</p>
+<ul>
+<li>题目链接：<a href="http://www.shiyanbar.com/ctf/1854" target="_blank" rel="noopener">http</a>：<a href="http://www.shiyanbar.com/ctf/1854" target="_blank" rel="noopener">//www.shiyanbar.com/ctf/1854</a></li>
+<li>解剖链接：<a href="http://ctf5.shiyanbar.com/web/10/10.php" target="_blank" rel="noopener">http</a>：<a href="//ctf5.shiyanbar.com/web/10/10.php">//ctf5.shiyanbar.com/web/10/10.php</a></li>
+</ul>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_question.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_question.png" alt="syb_fast_question"></a></p>
+<p>进入解题链接，发现如下提示：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_page.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_page.png" alt="syb_fast_page"></a></p>
+<p>“没有一种武术是不可击败的，拥有最快的速度才能保持长胜，你必须竭尽所能做到最快。”换句话说，如果我们没有天下第一的手速，还是借助工具来解题吧再看看源码有没什么新发现：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_page_source.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_page_source.png" alt="syb_fast_page_source"></a></p>
+<p>提示说请用POST请求提交你发现的信息，请求参数的键值是key。最后按照常规思路看看响应头：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_response_header.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_response_header.png" alt="syb_fast_response_header"></a></p>
+<p>结果发现有一个FLAG属性，其值是一段base64编码。在用Python脚本解题之前，为了打消部分同学的疑虑，先看看纯手工解码再提交POST请求会有什么效果：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_submit_key.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_submit_key.png" alt="syb_fast_submit_key"></a></p>
+<p>将FLAG值进行base64解码后，在Firefox下用<a href="https://addons.mozilla.org/zh-CN/firefox/addon/new-hackbar/" target="_blank" rel="noopener">新的Hackbar</a>工具提交POST请求：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_fail_page.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_fail_page.png" alt="syb_fast_fail_page"></a></p>
+<p>提示需要你再快些，显然必须要用编程语言辅助完成了。下面直接上Python脚本解题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://ctf5.shiyanbar.com/web/10/10.php&apos;</span><br><span class="line">headers = requests.get（url）.headers</span><br><span class="line">key = base64.b64decode（headers [ &apos;FLAG&apos; ]）。decode（）。split（&apos;：&apos;）[ 1 ]</span><br><span class="line">post = &#123; &apos;key&apos;：key&#125;</span><br><span class="line">print（requests.post（url，data = post）.text）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第6行：URL地址的字符串;</li>
+<li>第7行：获得GET请求的响应头;</li>
+<li>第8行：先将响应头中FLAG属性的值用base64解码，得到的结果为<code>bytes-like objects</code>类型，再用<code>decode()</code>解码得到字符串，最后用<code>split(':')</code>分离冒号两边的值，返回的<code>list</code>对象中的第二个元素即为要提交的关键值;</li>
+<li>Linr 9：构造POST请求中<code>data</code>参数的<code>dict</code>类型变量;</li>
+<li>第10行：提交带有<code>data</code>参数的POST请求，最终打印响应页面的内容。</li>
+</ul>
+<p>执行完脚本后，即可看到返回的最终标志：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_flag.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/syb_fast_flag.png" alt="syb_fast_flag"></a></p>
+<h2><span id="bugku-ctfweb-web6">【Bugku CTF】Web - Web6</span></h2>
+<p>此题是上一题的升级版，除了要求快速反弹POST请求，还要求所有的请求必须在同一个会话内完成，因此会话对象Session（）就派上用场了。相关链接如下：</p>
+<ul>
+<li>题目链接：<a href="http://123.206.31.85/challenges#Web6" target="_blank" rel="noopener">http</a>：<a href="http://123.206.31.85/challenges#Web6" target="_blank" rel="noopener">//123.206.31.85/challenges#Web6</a></li>
+<li>解题链接：<a href="http://120.24.86.145:8002/web6/" target="_blank" rel="noopener">http</a>：<a href="//120.24.86.145">//120.24.86.145</a>：8002 /web6/</li>
+</ul>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_question.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_question.png" alt="bugku_fast_question"></a></p>
+<p>进入解题链接，直接查看源码：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_page_source.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_page_source.png" alt="bugku_fast_page_source"></a></p>
+<p>发现POST请求参数的键值为margin，最后看看响应头：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_response_header.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_response_header.png" alt="bugku_fast_response_header"></a></p>
+<p>发现flag属性，其值同样是一段base64编码。这里就不手工解码再提交POST请求了，直接用上一题的Python脚本试试：</p>
+<blockquote>
+<p>此处注意第8行的base64解码，因为经过第一次base64解码后，仍然还是一段base64编码，所以要再解码一次。<strong>解题过程中，要自行动手查看每一次解码后的值，才能选择合适的方法去获得最终键值。</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/web6/&apos;</span><br><span class="line">headers = requests.get（url）.headers</span><br><span class="line">key = base64.b64decode（base64.b64decode（headers [ &apos;flag&apos; ]）。decode（）。split（“：”）[ 1 ]）</span><br><span class="line">post = &#123; &apos;margin&apos;：key&#125;</span><br><span class="line">print（requests.post（url，data = post）.text）</span><br></pre></td></tr></table></figure>
+<p>结果如下，果然没那么容易得到flag：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_fail_without_session.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_fail_without_session.png" alt="bugku_fast_fail_without_session"></a></p>
+<p>嗯，眉头一紧，发现事情并不简单。下面看看GET请求与POST请求的请求头与响应头是否内有玄机：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/web6/&apos;</span><br><span class="line"></span><br><span class="line">get_response = requests.get（url）</span><br><span class="line">print（&apos;GET Request Headers：\ n&apos;，get_response.request.headers，&apos;\ n&apos;）</span><br><span class="line">print（&apos;GET Response Headers：\ n&apos;，get_response.headers，&apos;\ n&apos;）</span><br><span class="line"></span><br><span class="line">key = base64.b64decode（base64.b64decode（get_response.headers [ &apos;flag&apos; ]）。decode（）。split（“：”）[ 1 ]）</span><br><span class="line">post = &#123; &apos;margin&apos;：key&#125;</span><br><span class="line">post_responese = requests.post（url，data = post）</span><br><span class="line">print（&apos;POST Request Headers：\ n&apos;，post_responese.request.headers，&apos;\ n&apos;）</span><br><span class="line">print（&apos;POST Response Headers：\ n&apos;，post_responese.headers，&apos;\ n&apos;）</span><br></pre></td></tr></table></figure>
+<p>不出所料，结果如下，原来是GET请求和POST请求的响应头都有Set-Cookie属性，并且值不相同，即不在同一个会话中，各自响应头中的旗值也不等：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_fail_headers.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_fail_headers.png" alt="bugku_fast_fail_headers"></a></p>
+<p>接下来引入会话对象Session（），稍作修改就能保证GET请求与POST请求在同一个会话中了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/web6/&apos;</span><br><span class="line">s = requests.Session（）</span><br><span class="line">headers = s.get（url）.headers</span><br><span class="line">key = base64.b64decode（base64.b64decode（headers [ &apos;flag&apos; ]）。decode（）。split（“：”）[ 1 ]）</span><br><span class="line">post = &#123; “margin”：key&#125;</span><br><span class="line">print（s.post（url，data = post）.text）</span><br></pre></td></tr></table></figure>
+<p>与上一题代码的区别是：此处用会话对象Session（）的<code>get</code>和<code>post</code>方法，而不是直接用于请求模块里的，这样可以保持GET请求与POST请求在同一个会话中。将同一会话中的密钥值作为POST请求参数提交，最终得到flag：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_flag.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_flag.png" alt="bugku_fast_flag"></a></p>
+<p>虽然到此即可结束，但为了验证以上两次请求真的在同一会话内，我们再次查看请求头与响应头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/web6/&apos;</span><br><span class="line">s = requests.Session（）</span><br><span class="line"></span><br><span class="line">get_response = s.get（url）</span><br><span class="line">print（&apos;GET Request Headers：\ n&apos;，get_response.request.headers，&apos;\ n&apos;）</span><br><span class="line">print（&apos;GET Response Headers：\ n&apos;，get_response.headers，&apos;\ n&apos;）</span><br><span class="line"></span><br><span class="line">key = base64.b64decode（base64.b64decode（get_response.headers [ &apos;flag&apos; ]）。decode（）。split（“：”）[ 1 ]）</span><br><span class="line">post = &#123; &apos;margin&apos;：key&#125;</span><br><span class="line">post_responese = s.post（url，data = post）</span><br><span class="line">print（&apos;POST Request Headers：\ n&apos;，post_responese.request.headers，&apos;\ n&apos;）</span><br><span class="line">print（&apos;POST Response Headers：\ n&apos;，post_responese.headers，&apos;\ n&apos;）</span><br></pre></td></tr></table></figure>
+<p>结果如下，GET请求中响应头的Set-Cookie属性与POST请求中请求头的Cookie属性相同，表明两次请求确实在同一会话中。</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_success_headers.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_fast_success_headers.png" alt="bugku_fast_success_headers"></a></p>
+<p>既然只需要保持两次请求中Cookie属性相同，那能不能构造Cookie属性通过普通的<code>get</code>与<code>post</code>方法完成呢？答案是可以的。请见如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/web6/&apos;</span><br><span class="line">headers = requests.get（url）.headers</span><br><span class="line">key = base64.b64decode（base64.b64decode（headers [ &apos;flag&apos; ]）。decode（）。split（“：”）[ 1 ]）</span><br><span class="line">post = &#123; “margin”：key&#125;</span><br><span class="line">PHPSESSID = headers [ “Set-Cookie” ] .split（“;”）[ 0 ] .split（“=”）[ 1 ]</span><br><span class="line">cookie = &#123; “PHPSESSID”：PHPSESSID&#125;</span><br><span class="line">print（requests.post（url，data = post，cookies = cookie）.text）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第10行：获得GET请求响应头中Set-Cookie属性的PHPSESSID值，该语句如何构造请自行分析Set-Cookie属性字符串值的结构;</li>
+<li>第11行：构造POST请求中<code>cookies</code>参数的<code>dict</code>类型变量;</li>
+<li>第12行：提交带有<code>data</code>参数和<code>cookies</code>参数的POST请求，最终打印响应页面的内容。</li>
+</ul>
+<p>毫无疑问，以上代码的结果也是最终的旗帜。</p>
+<h2><span id="bugku-ctf网站-秋名山老司机">【Bugku CTF】网站 - 秋名山老司机</span></h2>
+<p>前面两题均是对响应头中与flag相关的属性做解码处理，然后快速反弹一个POST请求得到标志值。而本题要求计算响应内容中的表达式，将结果用POST请求反弹回服务器换取标志值。实际上换汤不换药，依旧用Python写个脚本即可解决。</p>
+<ul>
+<li>题目链接：<a href="http://123.206.31.85/challenges#%E7%A7%8B%E5%90%8D%E5%B1%B1%E8%80%81%E5%8F%B8%E6%9C%BA" target="_blank" rel="noopener">http</a>：<a href="http://123.206.31.85/challenges#%E7%A7%8B%E5%90%8D%E5%B1%B1%E8%80%81%E5%8F%B8%E6%9C%BA" target="_blank" rel="noopener">//123.206.31.85/challenges#秋名山老司机</a></li>
+<li>解题链接：<a href="http://120.24.86.145:8002/qiumingshan/" target="_blank" rel="noopener">http</a>：<a href="//120.24.86.145">//120.24.86.145</a>：8002 / qiumingshan /</li>
+</ul>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_driver.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_driver.png" alt="bugku_qiuming_driver"></a></p>
+<p>打开解题连接，老规矩先看源码：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_page_source.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_page_source.png" alt="bugku_qiuming_page_source"></a></p>
+<p>题意很明确，要求在2秒内计算给出表达式的值…呃，然后呢？刷新页面再看看，噢噢，然后再将计算结果用POST请求反弹回服务器，请求参数的键值为<code>value</code>：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_hint.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_hint.png" alt="bugku_qiuming_hint"></a></p>
+<p>从页面内容中截取表达式，可以用string自带的<code>split()</code>函数，但必须先要知道表达式两边的字符串，以其作为分隔符;也可以用正则表达式，仅需知道表达式本身的特征即可此处用正则表达式更佳先放上题解脚本，再来慢慢解析。：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">＃！/ usr / bin / env python3</span><br><span class="line">＃ -  *  - 编码：utf-8  -  *  - </span><br><span class="line">导入请求</span><br><span class="line">进口重新</span><br><span class="line"></span><br><span class="line">url = &apos;http://120.24.86.145:8002/qiumingshan/&apos;</span><br><span class="line">s = requests.Session（）</span><br><span class="line">source = s.get（url）</span><br><span class="line">expression = re.search（r&apos;（\ d + [+ \  -  *]）+（\ d +）&apos;，source.text）.group（）</span><br><span class="line"></span><br><span class="line">result = eval（表达式）</span><br><span class="line">post = &#123; &apos;value&apos;：result&#125;</span><br><span class="line">print（s.post（url，data = post）.text）</span><br></pre></td></tr></table></figure>
+<p>有关请求的部分此处不细讲，唯一要注意的是，与上一篇writeup一样，要利用会话对象Session（），否则提交结果的时候，重新生成了一个新的表达式，结果自然错误。</p>
+<ul>
+<li>第9行：是利用<a href="http://www.runoob.com/python3/python3-reg-expressions.html" target="_blank" rel="noopener">正则表达式</a>截取响应内容中的算术表达式。首先引入re模块，其次用<code>search()</code>匹配算术表达式，匹配成功后用<code>group()</code>返回算术表达式的字符串。（想掌握正则表达式，还是要<strong>多看，多想，多练</strong>，毕竟应用场合非常之广）</li>
+</ul>
+<blockquote>
+<p>**search（）的第一个参数是匹配的正则表达式，第二个参数是要匹配的字符串。**其中<code>\d+</code>代表一个或多个数字; <code>[+\-*]</code>匹配一个加号，或一个减号，或一个乘号，注意减号在中括号内是特殊字符，要用反斜杠转义; <code>(\d+[+\-*])+</code>代表一个或多个由数字与运算符组成的匹配组;最后再加上剩下的一个数字<code>(\d+)</code>。</p>
+</blockquote>
+<ul>
+<li>第11行：在获得算术表达式的字符串后，直接利用Python的内建方法<a href="https://docs.python.org/3/library/functions.html#eval" target="_blank" rel="noopener"><code>eval()</code></a>来计算出结果，简单，暴力，快捷。</li>
+</ul>
+<p>执行完上述脚本，就有一定的概率可以获得flag了：</p>
+<p><a href="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_flag.png" target="_blank" rel="noopener"><img src="http://oyhh4m1mt.bkt.clouddn.com/%E8%AF%A6%E8%A7%A3_CTF_Web_%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%8D%E5%BC%B9_POST_%E8%AF%B7%E6%B1%82/bugku_qiuming_flag.png" alt="bugku_qiuming_flag"></a></p>
+<p>为什么说是一定概率呢？读者们自行尝试便知，据我观察，当计算结果超出一定长度时，服务器就不响应了。在此猜想：可能客户端Python脚本计算错误，也可能服务器端PHP脚本对大数计算有误差，还可能在POST请求过程中令大整数发生改变。至于是哪种，还请高手解答。</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/09/09/github-next/" data-toggle="tooltip" data-placement="top" title="github动态背景">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">0x00前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">0x01 Python请求</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安装并导入请求模块</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">发送GET请求与POST请求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">查看请求头</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">查看响应头</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">查看响应内容</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">传递GET请求参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">传递POST请求参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">传递Cookie参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">会话对象Session（）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">0x02写的</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">【实验吧CTF】网 - 天下武功唯快不破</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">【Bugku CTF】Web - Web6</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">【Bugku CTF】网站 - 秋名山老司机</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#web" title="web">web</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#" target="_blank">It Helps SEO</a></li>
+                    
+                        <li><a href="http://www.cnblogs.com/yang12318/" target="_blank">yxy大佬</a></li>
+                    
+                        <li><a href="https://ppcrab.github.io/" target="_blank">lk大佬</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://yoursite-url/2018/09/11/post/";
+    var disqus_url = "http://yoursite-url/2018/09/11/post/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+	
+<script type="text/javascript" src="/js/zooming.js"></script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Bleachz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Bleach 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+{% if theme.canvas_nest %}
+<script type="text/javascript"
+color="55,55,55" opacity='0.5' zIndex="-1" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+{% endif %}
+</body>
+
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/love.js"></script>
